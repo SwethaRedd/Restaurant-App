@@ -23,7 +23,7 @@
   # Props:
 
   - Props are normal arguments to a function.
-  - when you want to pass a dynamic data to the component, you pass in as a prop.
+  - when you want to pass a data to the component, you pass in as a prop.
   - Destructuring
   - Swiggy : https:..www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.624480699999999&page_type=DESKTOP_WEB_LISTING
 
