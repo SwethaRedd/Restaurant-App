@@ -24,14 +24,16 @@ const Header = () => {
     </div>
   );
 };
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+  console.log("props", props);
+  const { resName, cuisine, rating, time } = props;
   return (
     <div className="res-card" style={styleCard}>
       <img className="res-logo" src={resLogo} alt="res-img" />
-      <h3>Tasty Food Restaurant</h3>
-      <h4>Biryani, North Indian, Asian</h4>
-      <h4>4.4 Stars</h4>
-      <h4>38 Minutes</h4>
+      <h3>{resName}</h3>
+      <h4>{cuisine}</h4>
+      <h4>{rating}</h4>
+      <h4>{time}</h4>
     </div>
   );
 };
@@ -41,7 +43,24 @@ const Body = () => {
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestaurantCard />
+        <RestaurantCard
+          resName="Res Foods"
+          cuisine="Biryani, North Indian, Asian"
+          rating="4.4 Stars"
+          time="38 Minutes"
+        />
+        <RestaurantCard
+          resName="TFC Foods"
+          cuisine="North Indian, Asian"
+          rating="4.3 Stars"
+          time="48 Minutes"
+        />
+        <RestaurantCard
+          resName="RNRM Foods"
+          cuisine="Biryani, Asian"
+          rating="4.4 Stars"
+          time="28 Minutes"
+        />
       </div>
     </div>
   );

@@ -19,3 +19,7 @@
 
 - Footer - Copy rights - Links - Contact Info
   \*/
+
+  # Props:
+
+  - Are normal arguments to a function.
