@@ -32,18 +32,27 @@ const Header = () => {
 const RestaurantCard = (props) => {
   const { resData } = props;
   //   console.log("resData", resData);
+  const {
+    cloudinaryImageId,
+    name,
+    cuisines,
+    avgRating,
+    costForTwo,
+    deliveryTime,
+  } = resData;
+  // obj destructuring
   return (
     <div className="res-card" style={styleCard}>
       <img
         className="res-logo"
-        src={cloudinaryUrl + resData.cloudinaryImageId}
+        src={cloudinaryUrl + cloudinaryImageId}
         alt="restaurant-image"
       />
-      <h3>{resData.name}</h3>
-      <h4>{resData.cuisines.join(", ")}</h4>
-      <h4>{resData.avgRating} Stars</h4>
-      <h4>₹{resData.costForTwo / 100} FOR TWO</h4>
-      <h4>{resData.deliveryTime} Minutes</h4>
+      <h3>{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{avgRating} Stars</h4>
+      <h4>₹{costForTwo / 100} FOR TWO</h4>
+      <h4>{deliveryTime} Minutes</h4>
     </div>
   );
 };
