@@ -1,6 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import logo from "./assets/logo.jpg";
+import resLogo from "./assets/res-logo.jpg";
+
+const styleCard = {
+  backgroundColor: "lightgray",
+};
 
 const Header = () => {
   return (
@@ -19,10 +24,29 @@ const Header = () => {
     </div>
   );
 };
+const RestaurantCard = () => {
+  return (
+    <div className="res-card" style={styleCard}>
+      <img className="res-logo" src={resLogo} alt="res-img" />
+      <h3>Tasty Food Restaurant</h3>
+    </div>
+  );
+};
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="res-container">
+        <RestaurantCard />
+      </div>
+    </div>
+  );
+};
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
+      <Body />
     </div>
   );
 };

@@ -18,3 +18,15 @@
   padding: 10px;
   margin: 10px;
 }
+.res-card {
+  padding: 5px;
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+.search {
+  padding: 10px;
+}
+.res-logo {
+  width: 100%;
+}
