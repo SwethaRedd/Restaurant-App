@@ -42,14 +42,15 @@ const Body = () => {
       <div className="search">Search</div>
       <div className="res-container">
         <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
       </div>
+    </div>
+  );
+};
+const Footer = () => {
+  return (
+    <div className="footer">
+      <div className="contact-us">Contact Us</div>
+      <div className="links">Links</div>
     </div>
   );
 };
@@ -58,6 +59,7 @@ const AppLayout = () => {
     <div className="app">
       <Header />
       <Body />
+      <Footer />
     </div>
   );
 };
