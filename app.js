@@ -29,14 +29,25 @@ const RestaurantCard = () => {
     <div className="res-card" style={styleCard}>
       <img className="res-logo" src={resLogo} alt="res-img" />
       <h3>Tasty Food Restaurant</h3>
+      <h4>Biryani, North Indian, Asian</h4>
+      <h4>4.4 Stars</h4>
+      <h4>38 Minutes</h4>
     </div>
   );
 };
+
 const Body = () => {
   return (
     <div className="body">
       <div className="search">Search</div>
       <div className="res-container">
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
         <RestaurantCard />
       </div>
     </div>

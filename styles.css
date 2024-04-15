@@ -10,7 +10,7 @@
   padding: 0px 20px;
 }
 .nav-items > ul {
-  font-size: 24px;
+  font-size: 20px;
   display: flex;
   list-style-type: none;
 }
@@ -18,10 +18,17 @@
   padding: 10px;
   margin: 10px;
 }
+.res-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 .res-card {
   padding: 5px;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 350px;
+  margin: 5px;
+}
+.res-card:hover {
   border: 1px solid black;
 }
 .search {
