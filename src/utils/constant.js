@@ -1,3 +1,12 @@
+// Swiggy cloudinary images:
+// https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/77b13d58799f70f670be31e6fe53374e
+
+export const CDN_URL =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/"; //cloudinary URL
+export const LOGO_URL = "";
+//import { logo } from "../../assets/logo.jpg";
+
+/*
 export const da = {
   statusCode: 0,
   data: {
@@ -2562,3 +2571,4 @@ export const da = {
   deviceId: "dbbfd23d-1b00-ed84-134d-ab77d6ad5471",
   csrfToken: "mXx63nkFcMsF-2c9gqzpbnxRSGdWl7KeDe9su7WU",
 };
+*/

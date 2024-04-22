@@ -30,9 +30,14 @@
 # Config driven UI:
 
 Web site is driven by Configs(Data).
-Controlling your UI using your data, your config (data) . Your config(data) comes from your backend.
+Controlling your UI using your data or your config . Your config(data) comes from your backend api.
 
 The data can be different for different locations.
+Few websites are operated in different countries, and displays webiste information tailored to each specific location.
+
+This is achieved through a config driven UI, where the backend controls the front end UI configuration, allowing for targetted content delivery based on the user's location.
+
+This system ensures that users see relevant information, such as promotions, offers or deals and details specific to their location resulting in a personalized and convenient experience.
 
 # Ex:
 
@@ -60,3 +65,21 @@ Why we need to use the key?
 React Uniquely doesn’t identify the new item. It re renders everything. So we need a unique property to uniquely identify it.
 
 Don’t use index as key (React official document suggests not to use index as Key)
+
+# Import / Export
+
+*#*default export : you export only one default export per page.
+We can import this default export as
+
+import Component from "/path';
+Ex:
+import Header from "./Header';
+
+_#_ Named export : In a single file, we have to export multiple exports, we can use this named exports instead of default export.
+export const Component;
+
+We can import this named Export as
+import Header from "./Header';
+
+import {Component} from "path;
+Ex: import {CDN_URL} from "./constant";
