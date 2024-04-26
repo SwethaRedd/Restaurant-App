@@ -3,8 +3,9 @@ import { CDN_URL } from "../../utils/constant";
 const styleCard = {
   backgroundColor: "lightgray",
 };
-console.log("CDN_URL", CDN_URL);
+// console.log("CDN_URL", CDN_URL);
 const RestaurantCard = (props) => {
+  // console.log("props", props);
   const { resData } = props;
   //   console.log("resData", resData);
   const {
