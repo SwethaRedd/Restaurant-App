@@ -46,3 +46,13 @@
   font-size: 20px;
   padding: 10px 20px;
 }
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shimmer-card {
+  width: 200px;
+  height: 400px;
+  background-color: gray;
+  margin: 20px;
+}

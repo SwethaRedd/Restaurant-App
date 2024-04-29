@@ -1,73 +1,32 @@
 import RestaurantCard from "./Restaurant/RestaurantCard";
 import resList from "../utils/mockData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 // https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/77b13d58799f70f670be31e6fe53374e
 
 const Body = () => {
-  // Normal JS Variable
-  let listOfRestaurantsJS = [
-    {
-      data: {
-        id: "610732",
-        name: "KFC",
-        cloudinaryImageId: "56c9ab92bd79745fd152a30fa2525426",
-        cuisines: ["Burgers", "Biryani", "American", "Snacks", "Fast Food"],
-        costForTwo: 40000,
-        costForTwoString: "₹400 FOR TWO",
-        deliveryTime: 25,
-        cityState: "4",
-        address:
-          "KFC Restaurant B-2,Rama Part near dwarka more metro station. New Delhi 110059.",
-        locality: "Metro Station",
-        avgRating: "4.0",
-      },
-    },
-    {
-      data: {
-        id: "610733",
-        name: "Dominos",
-        cloudinaryImageId: "56c9ab92bd79745fd152a30fa2525426",
-        cuisines: ["Burgers", "Biryani", "American", "Snacks", "Fast Food"],
-        costForTwo: 40000,
-        costForTwoString: "₹400 FOR TWO",
-        deliveryTime: 25,
-        cityState: "4",
-        address:
-          "KFC Restaurant B-2,Rama Part near dwarka more metro station. New Delhi 110059.",
-        locality: "Metro Station",
-        avgRating: "4.5",
-      },
-    },
-  ];
   // State Variable - Super Powerful Variable
   // Hook is normal JS function, given by react , function has logic behind the scenes.
 
   // const [state, setstate] = useState(initialState);
   const [listOfRestaurants, setListOfRestaurants] = useState(resList);
-
-  /*
-  const [listOfRestaurants, setListOfRestaurants] = useState(resList);
- is something similar to this below code- which looks like regular JS
-  
-  const arr = useState(resList);
-  const [listOfRestaurants, setListOfRestaurants] = arr // array destructuring
-  const lisOfRestaurants = arr[0];
-  const setListOfRestaurants = arr[1];
-
-  */
   useEffect(() => {
     fetchData();
-    // console.log("useEffect is Called");
   }, []);
 
   const fetchData = async () => {
-    // console.log("fetch Data");
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
+    setListOfRestaurants(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
+
+  if (listOfRestaurants.length === 0) {
+    return <Shimmer />;
+  }
 
   return (
     <div className="body">
@@ -77,7 +36,9 @@ const Body = () => {
           onClick={() => {
             // filter logic
             const filteredList = listOfRestaurants.filter(
-              (res) => res.data.avgRating > 4
+              (res) =>
+                //  console.log('res', res)
+                res?.data?.avgRating > 3
             );
             setListOfRestaurants(filteredList);
             // setListOfRestaurants(
@@ -93,10 +54,8 @@ const Body = () => {
       <div className="res-container">
         {listOfRestaurants.map((restaurant) => (
           <>
-            <RestaurantCard
-              key={restaurant.data.id}
-              resData={restaurant?.data}
-            />
+            {console.log("restaurant", restaurant)}
+            <RestaurantCard key={restaurant?.info?.id} resData={restaurant} />
           </>
         ))}
       </div>
@@ -122,3 +81,50 @@ export default Body;
 ))}
 </div> */
 }
+
+/**
+ * export default function Sale() {
+  const noSaleMessage = "No on-going sales, check back later";
+  const [saleBanner, setSaleBanner] = useState(noSaleMessage);
+  const [isOnGoingSale, setIsOnGoingSale] = useState(false);
+
+  const handleOnClick = (label, duration) => {
+    console.log("label", label);
+    setSaleBanner(label);
+    setIsOnGoingSale(true);
+
+    setTimeout(() => {
+      setSaleBanner(noSaleMessage);
+      setIsOnGoingSale(false);
+    }, duration * 1000);
+  };
+
+  return (
+    <div>
+      <h1>{saleBanner}</h1>
+      {products.map((product) => (
+        <Controls
+          isDisabled={isOnGoingSale}
+          key={product.id}
+          handleOnClick={handleOnClick}
+          duration={product.duration}
+          item={`${product.item} for ${product.duration} seconds`}
+        />
+      ))}
+    </div>
+  );
+}
+
+const Controls = (props) => {
+  console.log("props", props);
+  const { item, handleOnClick, duration, isDisabled } = props;
+  const handleOnProductClick = () => {
+    handleOnClick(item, duration);
+  };
+  return (
+    <button disabled={isDisabled} onClick={handleOnProductClick}>
+      {item}{" "}
+    </button>
+  );
+};
+ */

@@ -5,18 +5,12 @@ const styleCard = {
 };
 // console.log("CDN_URL", CDN_URL);
 const RestaurantCard = (props) => {
-  // console.log("props", props);
-  const { resData } = props;
-  //   console.log("resData", resData);
-  const {
-    cloudinaryImageId,
-    name,
-    cuisines,
-    avgRating,
-    costForTwo,
-    deliveryTime,
-  } = resData;
+  // console.log("props", props.resData.data);
+  // console.log("props", props.resData.info);
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
+    props?.resData.data;
   // obj destructuring
+
   return (
     <div className="res-card" style={styleCard}>
       <img
@@ -27,8 +21,8 @@ const RestaurantCard = (props) => {
       <h3>{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRating} Stars</h4>
-      <h4>₹{costForTwo / 100} FOR TWO</h4>
-      <h4>{deliveryTime} Minutes</h4>
+      <h4>₹{costForTwo} FOR TWO</h4>
+      <h4>{sla.slaString}</h4>
     </div>
   );
 };
