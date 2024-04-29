@@ -23,12 +23,18 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-
+  /*
+  conditional rendering:
   if (listOfRestaurants.length === 0) {
     return <Shimmer />;
   }
-
-  return (
+  adding this logic below with ternary operation:
+  if listOfRestaurants.length === 0 load Shimmer Component
+  else the res of the code
+*/
+  return listOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
@@ -81,50 +87,3 @@ export default Body;
 ))}
 </div> */
 }
-
-/**
- * export default function Sale() {
-  const noSaleMessage = "No on-going sales, check back later";
-  const [saleBanner, setSaleBanner] = useState(noSaleMessage);
-  const [isOnGoingSale, setIsOnGoingSale] = useState(false);
-
-  const handleOnClick = (label, duration) => {
-    console.log("label", label);
-    setSaleBanner(label);
-    setIsOnGoingSale(true);
-
-    setTimeout(() => {
-      setSaleBanner(noSaleMessage);
-      setIsOnGoingSale(false);
-    }, duration * 1000);
-  };
-
-  return (
-    <div>
-      <h1>{saleBanner}</h1>
-      {products.map((product) => (
-        <Controls
-          isDisabled={isOnGoingSale}
-          key={product.id}
-          handleOnClick={handleOnClick}
-          duration={product.duration}
-          item={`${product.item} for ${product.duration} seconds`}
-        />
-      ))}
-    </div>
-  );
-}
-
-const Controls = (props) => {
-  console.log("props", props);
-  const { item, handleOnClick, duration, isDisabled } = props;
-  const handleOnProductClick = () => {
-    handleOnClick(item, duration);
-  };
-  return (
-    <button disabled={isDisabled} onClick={handleOnProductClick}>
-      {item}{" "}
-    </button>
-  );
-};
- */
