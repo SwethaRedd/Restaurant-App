@@ -11,7 +11,7 @@ const Error = () => {
   return (
     <div>
       <h1>Oops!!!</h1>
-      <h2>Somethig Went Wrong!!</h2>
+      <h2>{err.error.message}</h2>
     </div>
   );
 };
