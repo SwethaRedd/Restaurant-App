@@ -5,10 +5,12 @@ const styleCard = {
 };
 // console.log("CDN_URL", CDN_URL);
 const RestaurantCard = (props) => {
-  // console.log("props", props.resData.data);
+  const { resData } = props;
+  // console.log("props===>", resData);
+
   // console.log("props", props.resData.info);
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
-    props?.resData.data;
+    resData?.info || resData?.data;
   // obj destructuring
 
   return (
