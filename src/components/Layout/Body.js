@@ -1,8 +1,8 @@
-import RestaurantCard from "./Restaurant/RestaurantCard";
-import resList from "../utils/mockData";
+import RestaurantCard from "../Restaurant/RestaurantCard";
+import resList from "../../utils/mockData";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
-import Banner from "./Banner";
+import Shimmer from "../Shimmer";
+import Banner from "../Pages/Banner";
 // https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/77b13d58799f70f670be31e6fe53374e
 
 const Body = () => {
