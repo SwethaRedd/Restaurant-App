@@ -21,8 +21,12 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
+    /* If my CORS plugin is not activated on my browser: 
+    https://corsproxy.io/
+    This cors proxy has some limit / min, so we can use this for dev purposes.
+    */
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
 
     const json = await data.json();
