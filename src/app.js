@@ -5,11 +5,11 @@ import Body from "./components/Layout/Body.js";
 import Bod from "./components/Bod.js";
 import About from "./components/Pages/About.js";
 import Contact from "./components/Pages/Contact.js";
-import Banner from "./components/Banner.js";
 import Header from "./components/Layout/Header.js";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Pages/Contact.js";
 import Error from "./components/Pages/Error.js";
+import RestaurantMenu from "./components/Restaurant/RestaurantMenu.js";
 
 const AppLayout = () => {
   return (
@@ -37,6 +37,11 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      //Dynamic Routing:  /:resId is dynamic here
+      {
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />,
       },
     ],
     errorElement: <Error />,
