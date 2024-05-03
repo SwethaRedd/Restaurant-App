@@ -71,3 +71,15 @@
 .filter {
   display: flex;
 }
+.about,
+.banner,
+.contact {
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px 0;
+}
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
