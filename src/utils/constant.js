@@ -5,8 +5,12 @@ export const CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/"; //cloudinary URL
 export const LOGO_URL = "";
 //import { logo } from "../../assets/logo.jpg";
+export const MENU_API =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=";
 
 /*
+
+https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=425&submitAction=ENTER
 export const da = {
   statusCode: 0,
   data: {
@@ -2570,5 +2574,4 @@ export const da = {
   sid: "6qodc881-9f84-4137-8871-c7b896ad54bc",
   deviceId: "dbbfd23d-1b00-ed84-134d-ab77d6ad5471",
   csrfToken: "mXx63nkFcMsF-2c9gqzpbnxRSGdWl7KeDe9su7WU",
-};
 */
