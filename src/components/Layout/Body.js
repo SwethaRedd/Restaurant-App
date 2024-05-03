@@ -3,6 +3,7 @@ import resList from "../../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "../Shimmer";
 import Banner from "../Pages/Banner";
+import { Link } from "react-router-dom";
 // https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/77b13d58799f70f670be31e6fe53374e
 
 const Body = () => {
@@ -100,8 +101,11 @@ const Body = () => {
       <div className="res-container">
         {filteredRestaurant.map((res) => (
           <>
-            {/* {console.log("restaurant card", res)} */}
-            <RestaurantCard key={res?.info?.id} resData={res} />
+            {/* {console.log("restaurant card", res)}
+            // {"/restaurant/" + res.info.id} */}
+            <Link key={res?.info?.id} to={"/restaurant/" + res.info.id}>
+              <RestaurantCard resData={res} />{" "}
+            </Link>
           </>
         ))}
       </div>
