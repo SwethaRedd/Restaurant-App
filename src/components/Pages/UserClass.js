@@ -12,22 +12,25 @@ class UserClass extends React.Component {
 
     this.state = {
       count: 0,
-      count1: 1,
-      count1: 2,
     };
   }
 
   render() {
     const { name, location, gmail } = this.props;
-    const { count1, count2 } = this.state;
+    const { count } = this.state;
+    const countIncrease = () => {
+      this.setState({
+        count: count + 1,
+        //or  count: this.state.count + 1,
+      });
+    };
     return (
       <div className="user-card">
+        <h4>Count: {count} </h4>
+        <button onClick={countIncrease}>Count Increase </button>
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
         <h4>Contact: {gmail}</h4>
-        <h4>Count: {this.state.count} </h4>
-        <h4>Count1: {count1} </h4>
-        <h4>Count1: {count2} </h4>
       </div>
     );
   }
