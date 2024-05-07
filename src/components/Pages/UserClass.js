@@ -4,16 +4,30 @@ class UserClass extends React.Component {
   constructor(props) {
     super(props); // super() is used to access its parent's props & methods
     // The super() function is the bridge that connects a child class component to its parent class constructor, allowing the child class to inherit all the goodness from the parent.
-    console.log("props==>", props);
+    // console.log("props==>", props);
+    /***
+     * state is basically a big whole object, contains state variables.
+     *
+     */
+
+    this.state = {
+      count: 0,
+      count1: 1,
+      count1: 2,
+    };
   }
 
   render() {
     const { name, location, gmail } = this.props;
+    const { count1, count2 } = this.state;
     return (
       <div className="user-card">
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
         <h4>Contact: {gmail}</h4>
+        <h4>Count: {this.state.count} </h4>
+        <h4>Count1: {count1} </h4>
+        <h4>Count1: {count2} </h4>
       </div>
     );
   }
