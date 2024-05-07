@@ -21,13 +21,18 @@ class UserClass extends React.Component {
     const countIncrease = () => {
       this.setState({
         count: count + 1,
-        //or  count: this.state.count + 1,
+      });
+    };
+    const countDecrease = () => {
+      this.setState({
+        count: count - 1,
       });
     };
     return (
       <div className="user-card">
         <h4>Count: {count} </h4>
         <button onClick={countIncrease}>Count Increase </button>
+        <button onClick={countDecrease}>Count Decrease </button>
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>
         <h4>Contact: {gmail}</h4>
