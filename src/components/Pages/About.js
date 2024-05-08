@@ -6,32 +6,19 @@ import UserClass from "./UserClass";
 class About extends Component {
   constructor(props) {
     super(props);
-    console.log("Parent Constructor");
+    // console.log("Parent Constructor");
   }
   componentDidMount() {
-    console.log("Parent Component Did Mount");
+    // console.log("Parent Component Did Mount");
+    // const API = fetch("https://api.github.com/users/akshaymarch7");
   }
   render() {
-    console.log("Parent Render");
+    // console.log("Parent Render");
     return (
       <div className="about">
         <h1>About Class Based Component</h1>
         <h2>I am About Component</h2>
-        <UserClass
-          name={"First (Class)"}
-          location={"SomeLocation (Class)"}
-          gmail={"something@gmail.com (Class)"}
-        />
-        <UserClass
-          name={"Second (Class)"}
-          location={"SomeLocation (Class)"}
-          gmail={"something@gmail.com (Class)"}
-        />
-        <UserClass
-          name={"Third (Class)"}
-          location={"SomeLocation (Class)"}
-          gmail={"something@gmail.com (Class)"}
-        />
+        <UserClass name={"First (Class)"} location={"SomeLocation"} />
       </div>
     );
   }

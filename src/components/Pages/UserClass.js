@@ -9,40 +9,36 @@ class UserClass extends React.Component {
      * state is basically a big whole object, contains state variables.
      *
      */
-
     this.state = {
-      count: 0,
+      userInfo: {
+        name: "Dummy",
+        location: "Default",
+        avatar_url:
+          "https://st4.depositphotos.com/1001411/21420/i/1600/depositphotos_214208590-stock-photo-beautiful-pink-flowers-white-background.jpg",
+      },
     };
-    console.log(this.props.name + "Child constructor");
+    // console.log(this.props.name + "Child constructor");
   }
 
-  componentDidMount() {
-    console.log(this.props.name + "Child Component Did Mount ");
+  async componentDidMount() {
+    // console.log(this.props.name + "Child Component Did Mount ");
+    // const data = await fetch("https://api.github.com/users/swethareddy");
+    const data = await fetch("https://api.github.com/users/akshaymarch7");
+    const json = await data.json();
+    console.log("json", json);
+    this.setState({
+      userInfo: json,
+    });
   }
   render() {
-    console.log(this.props.name + "Child Render");
-    const { name, location, gmail } = this.props;
-    const { count } = this.state;
-    const countIncrease = () => {
-      console.log(" Child Increase update Count");
-      this.setState({
-        count: count + 1,
-      });
-    };
-    const countDecrease = () => {
-      console.log("Child Decrease update Count");
-      this.setState({
-        count: count - 1,
-      });
-    };
+    // console.log(this.props.name + "Child Render");
+    const { name, location, login, avatar_url } = this.state.userInfo;
+    debugger;
     return (
       <div className="user-card">
-        <h4>Count: {count} </h4>
-        <button onClick={countIncrease}>Count Increase </button>
-        <button onClick={countDecrease}>Count Decrease </button>
-        <h2>Name: {name}</h2>
-        <h3>Location: {location}</h3>
-        <h4>Contact: {gmail}</h4>
+        <img src={avatar_url} alt="Avatar" />
+        <h2> Name: {name} </h2>
+        <h3> Location: {location}</h3>
       </div>
     );
   }
