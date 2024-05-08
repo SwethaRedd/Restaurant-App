@@ -13,17 +13,24 @@ class UserClass extends React.Component {
     this.state = {
       count: 0,
     };
+    console.log(this.props.name + "Child constructor");
   }
 
+  componentDidMount() {
+    console.log(this.props.name + "Child Component Did Mount ");
+  }
   render() {
+    console.log(this.props.name + "Child Render");
     const { name, location, gmail } = this.props;
     const { count } = this.state;
     const countIncrease = () => {
+      console.log(" Child Increase update Count");
       this.setState({
         count: count + 1,
       });
     };
     const countDecrease = () => {
+      console.log("Child Decrease update Count");
       this.setState({
         count: count - 1,
       });
