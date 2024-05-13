@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "../Shimmer";
 import Banner from "../Pages/Banner";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 // https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/77b13d58799f70f670be31e6fe53374e
 
 const Body = () => {
@@ -21,6 +22,9 @@ const Body = () => {
     fetchData();
   }, []);
 
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return <h1> You are Offline Please check your Internet</h1>;
   const fetchData = async () => {
     /* If my CORS plugin is not activated on my browser: 
     https://corsproxy.io/
