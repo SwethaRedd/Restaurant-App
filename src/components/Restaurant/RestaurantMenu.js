@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Shimmer from "../Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../../utils/constant";
+import useRestaurantMenu from "../../utils/useRestaurantMenu";
+
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
+  console.log("useParams()===>", useParams());
   const { resId } = useParams();
-
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    //"https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9351929&lng=77.62448069999999&restaurantId=425"
-    const data = await fetch(`${MENU_API}` + resId);
-    const json = await data.json();
-
-    setResInfo(json.data);
-  };
+  /* you can use the useParams() hook to access the route parameters defined in the route path. For example: const { userId } = useParams();
+  The useParams() hook returns an object containing the parameters parsed from the current route. 
+  You can destructure specific parameters from this object and use them in your component logic. 
+  In the example above, we destructure userId from the returned object to access the userId parameter from the route path (/users/:userId). 
+  */
+  const resInfo = useRestaurantMenu(resId);
 
   if (resInfo === null) return <Shimmer />;
 
