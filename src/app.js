@@ -39,6 +39,7 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       //Dynamic Routing:  /:resId is dynamic here
+      // you can specify dynamic segments in the route path by prefixing them with a colon (:)
       {
         path: "/restaurant/:resId",
         element: <RestaurantMenu />,
