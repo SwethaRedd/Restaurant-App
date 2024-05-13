@@ -22,9 +22,6 @@ const Body = () => {
     fetchData();
   }, []);
 
-  const onlineStatus = useOnlineStatus();
-  if (onlineStatus === false)
-    return <h1> You are Offline Please check your Internet</h1>;
   const fetchData = async () => {
     /* If my CORS plugin is not activated on my browser: 
     https://corsproxy.io/
@@ -45,6 +42,10 @@ const Body = () => {
 
     // Optional Chaining
   };
+
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return <h1> You are Offline, Please check your Internet!!</h1>;
 
   const handleSearch = () => {
     // Filter the restaurant cards and update the UI
