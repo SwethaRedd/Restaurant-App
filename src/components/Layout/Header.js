@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../../assets/logo.jpg";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const Header = () => {
   const btnName = "Login";
   const [buttonName, setButtonUpdate] = useState(btnName);
-  console.log("Header rendered");
+  const onlineStatus = useOnlineStatus();
+  // console.log("Header rendered");
   /*
   we import useEffect from named import from react library.
   useEffect(() => {},[] );
@@ -32,6 +34,7 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          <li>Online Status: {onlineStatus ? "🟢" : "🔴"} </li>
           <li>
             <Link to="/">Home </Link>{" "}
           </li>
