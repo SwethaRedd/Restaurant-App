@@ -431,3 +431,97 @@ Coding Assignment:
 ○ Write a console.log for each lifecycle method
 ○ Play with the console logs to find out the correct order of their execution
 ● Create interval inside compo
+
+===========
+
+# Chapter 09 - Optimizing our App
+
+# Theory -
+
+● When and why do we need lazy()?
+● What is suspense?
+● Why we got this error : A component suspended while responding to
+synchronous input. This will cause the UI to be replaced with a loading indicator.
+To fix, updates that suspend should be wrapped with startTransition? How does
+suspense fix this error?
+● Advantages and disadvantages of using this code splitting pattern?
+● When do we and why do we need suspense?
+
+# Single responsibility principle:
+
+if you have function or a class or something else, it has to have a single responsibility.
+
+Each component that we have, we should give it a single responsibility. & we should not to do multiple things in single components, instead we should break the tasks into multiple components.
+
+# Modularity:
+
+Means, you break down your code into multiple or small modules, so that your code becomes more maintainable, reusable and more testable.
+
+# Create your custom hooks
+
+Hooks are like utility functions. We will just abstract or take out some responsibility from a component and extract the logic into a reusable hook, so that our hook and our component becomes more modular (hence more readable)
+
+# custom Hooks in React
+
+are a way to encapsulate reusable logic and state within functional components. Custom Hooks are typically used for local component state management and can handle specific functionality, such as form validation or API calls.
+
+=========
+
+# Our app is taking lot of time to load or it's bloating or our app's bundle size is increasing. What we can do?
+
+You can say, i can use lazy loading to distribute my code into different chunks.
+
+when you're bulding a big application, you need to make smaller components.
+we will try to make smaller bundles of these files, this process is known as. chunking or code splitting etc....
+
+# Chunking / Code Splitting / Dynamic Bundling / Lazy Loading / on Demand Loading /Dynamic import
+
+# how & when to make smaller/separate bundles ?
+
+Lets say I want to make a Logical seperation of bundle.
+A bundle should have enough code for feature in the website. So that we can split our bundles into these smaller logical chunks.
+Ex:
+Lets say A site have multiple menus in the home page header, and each menu have multiple logical components and they can make a bundle, like the same way all the menus in the header will logically have their own seperate bundles.
+
+So all these Smaller applications(bundles)in to a bigger application.
+
+# How to create a separate bundle?
+
+When I click on some link realted to the component, then only it should load that specific page component.
+
+basically we use this lazy() function to load this component instead of directly importing it like regular imports.
+
+const Grocery = lazy(() => import("./components/Grocery/Grocery"));
+
+this lazy() function takes a callback function and that will have import(), which takes the component path.
+
+If you write your component in the route path directly like this:
+element: (
+<Grocery />
+)
+we might get the page related error, coz, the page might take sometime to make a call and get the data into the DOM, that fraction of time, the page will not find this new components data, so we might see some error on the page.
+To avoid that we have this Suspence component from react
+
+and when you write your component in the route path, you use this Suspense component(from react) and wrap your component inside this Suspence component.
+
+<Suspense fallback={<div>Loading...</div>}>
+<Grocery />{" "}
+</Suspense>
+
+So when the user clicks on the link, the react makes call to that specific component to load it, so it will show the fallback option to show loading until the actual components gets loaded on to the DOM.
+
+https://legacy.reactjs.org/docs/code-splitting.html#reactlazy
+
+this makes our large scale applications, very fast,very performant, light weight and optimized.
+
+==============
+
+# Coding -
+
+● Create your custom hooks
+● Try out lazy and suspense
+● Make your code clean.
+
+References:
+● https://reactjs.org/docs/hooks-custom.html
+● https://beta.reactjs.org/apis/react/lazy#suspense-for-code-splitting
