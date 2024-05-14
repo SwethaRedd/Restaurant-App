@@ -85,23 +85,32 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="filter flex">
+        <div className="search m-4 p-4">
           <input
             type="text"
-            className="search-box"
+            className="border border-solid border-black"
             placeholder="search"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
-          <button onClick={handleSearch}>Search</button>
+          <button
+            className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+            onClick={handleSearch}
+          >
+            Search
+          </button>
         </div>
-
-        <button onClick={filterTopRestaurants} className="filter-btn">
-          Top Rated Restaurants
-        </button>
+        <div className="search m-4 p-4 flex items-center ">
+          <button
+            onClick={filterTopRestaurants}
+            className="px-4 py-2 bg-gray-100 m-4 rounded-lg "
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
       {/* add logic for banner show - config-driven data */}
       <Banner />
