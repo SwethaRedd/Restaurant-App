@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Footer from "./components/Layout/Footer";
 import Body from "./components/Layout/Body";
-import About from "./components/Pages/About";
 import Contact from "./components/Pages/Contact";
 import Header from "./components/Layout/Header";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
@@ -22,6 +21,7 @@ on Demand Loading
 Dynamic import
 */
 const Grocery = lazy(() => import("./components/Grocery/Grocery"));
+const About = lazy(() => import("./components/Pages/About"));
 const AppLayout = () => {
   return (
     <div className="app">
@@ -43,7 +43,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <About />
+          </Suspense>
+        ),
       },
       {
         path: "/contact",
