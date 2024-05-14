@@ -23,7 +23,7 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    /* If my CORS plugin is not activated on my browser: 
+    /* If my CORS plugin is not activated on my browser:
     https://corsproxy.io/
     This cors proxy has some limit / min, so we can use this for dev purposes.
     */
