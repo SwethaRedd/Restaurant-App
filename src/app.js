@@ -44,8 +44,11 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/grocery",
-        element: <Grocery />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Grocery />{" "}
+          </Suspense>
+        ),
       },
       //Dynamic Routing:  /:resId is dynamic here
       // you can specify dynamic segments in the route path by prefixing them with a colon (:)
