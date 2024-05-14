@@ -518,9 +518,9 @@ this makes our large scale applications, very fast,very performant, light weight
 
 # Coding -
 
-● Create your custom hooks
-● Try out lazy and suspense
-● Make your code clean.
+● Create your custom hooks ✅
+● Try out lazy and suspense ✅
+● Make your code clean. ✅
 
 References:
 ● https://reactjs.org/docs/hooks-custom.html
