@@ -9,8 +9,13 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Pages/Contact";
 import Error from "./components/Pages/Error";
 import RestaurantMenu from "./components/Restaurant/RestaurantMenu";
-import Grocery from "./components/Grocery/Grocery";
+/*
+lazy is a function by react.
+lazy takes a callback function, and i can write a import,
+this import is a function, & this takes the path of the component.
 
+*/
+const Grocery = lazy(() => import("./components/Grocery/Grocery"));
 const AppLayout = () => {
   return (
     <div className="app">
