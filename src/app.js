@@ -14,6 +14,12 @@ lazy is a function by react.
 lazy takes a callback function, and i can write a import,
 this import is a function, & this takes the path of the component.
 
+Chunking
+Code splitting
+Dynamic Bundling
+lazy Loading
+on Demand Loading
+Dynamic import
 */
 const Grocery = lazy(() => import("./components/Grocery/Grocery"));
 const AppLayout = () => {
