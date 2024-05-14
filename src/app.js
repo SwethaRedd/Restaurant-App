@@ -1,15 +1,15 @@
-import React from "react";
+import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Footer from "./components/Layout/Footer";
-import Body from "./components/Layout/Body.js";
-import Bod from "./components/Bod.js";
-import About from "./components/Pages/About.js";
-import Contact from "./components/Pages/Contact.js";
-import Header from "./components/Layout/Header.js";
+import Body from "./components/Layout/Body";
+import About from "./components/Pages/About";
+import Contact from "./components/Pages/Contact";
+import Header from "./components/Layout/Header";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Contact from "./components/Pages/Contact.js";
-import Error from "./components/Pages/Error.js";
-import RestaurantMenu from "./components/Restaurant/RestaurantMenu.js";
+import Contact from "./components/Pages/Contact";
+import Error from "./components/Pages/Error";
+import RestaurantMenu from "./components/Restaurant/RestaurantMenu";
+import Grocery from "./components/Grocery/Grocery";
 
 const AppLayout = () => {
   return (
@@ -37,6 +37,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/grocery",
+        element: <Grocery />,
       },
       //Dynamic Routing:  /:resId is dynamic here
       // you can specify dynamic segments in the route path by prefixing them with a colon (:)
