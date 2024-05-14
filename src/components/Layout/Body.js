@@ -1,4 +1,6 @@
-import RestaurantCard from "../Restaurant/RestaurantCard";
+import RestaurantCard, {
+  withPromotedLabel,
+} from "../Restaurant/RestaurantCard";
 import resList from "../../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "../Shimmer";
@@ -16,7 +18,7 @@ const Body = () => {
   // Whenever the state variable is updating, react will trigger the reconcilation cycle(re-renders the component), this makes the react faster.
 
   const [searchText, setSearchText] = useState("");
-  console.log("Body Rendered");
+  const PromotedRestaurantCard = withPromotedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -108,8 +110,13 @@ const Body = () => {
           <>
             {/* {console.log("restaurant card", res)}
             // {"/restaurant/" + res.info.id} */}
+            {/* // if the restaurant is promoted then add a promoted label to it */}
             <Link key={res?.info?.id} to={"/restaurant/" + res.info.id}>
-              <RestaurantCard resData={res} />{" "}
+              {res?.info?.promoted ? (
+                <PromotedRestaurantCard resData={res} />
+              ) : (
+                <RestaurantCard resData={res} />
+              )}
             </Link>
           </>
         ))}

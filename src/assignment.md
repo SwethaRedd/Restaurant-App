@@ -525,3 +525,39 @@ this makes our large scale applications, very fast,very performant, light weight
 References:
 ● https://reactjs.org/docs/hooks-custom.html
 ● https://beta.reactjs.org/apis/react/lazy#suspense-for-code-splitting
+
+# Chapter 10 - Jo dikhta hai vo bikta hai
+
+Theory:
+● Explore all the ways of writing css.
+● How do we configure tailwind?
+● In tailwind.config.js, what does all the keys mean (content, theme, extend,
+plugins)?
+● Why do we have .postcssrc file?
+Coding:
+● Configure Tailwind and try to build your whole app using tailwind.
+
+# References:
+
+● https://styled-components.com/
+● https://tailwindcss.com/
+● https://getbootstrap.com/
+● Material UI - https://mui.com/
+
+# HOC
+
+Higher order component is a function, takes a component and returns a component.
+
+# Chapter 11 - Data is the new Oil
+
+Theory:
+● What is prop drilling?
+● What is lifting the state up?
+● What is Context Provider and Context Consumer?
+● If you don’t pass a value to the provider does it take the default value?
+Coding:
+● Practice React Context with code examples
+● Try out Nested Contexts
+References:
+● Lifting State Up
+● React Context
