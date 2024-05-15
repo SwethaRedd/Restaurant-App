@@ -6,7 +6,7 @@ const User = (props) => {
     useCount(count + 1);
   };
   return (
-    <div className="user-card">
+    <div className="user-card m-4 p-4 bg-gray-50 rounded-lg">
       <h1>Count: {count} </h1>
       <button onClick={updateCount}>Count </button>
       <h2>Name: {props.name}</h2>

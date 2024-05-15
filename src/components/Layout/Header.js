@@ -28,7 +28,7 @@ const Header = () => {
   }, [handleClick]);
 
   return (
-    <div className="flex justify-between bg-pink-100 shadow-lg">
+    <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-100">
       <div className="logo-container">
         <img className="w-56" src={logo} alt="logo" />
       </div>

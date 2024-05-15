@@ -114,7 +114,7 @@ const Body = () => {
       </div>
       {/* add logic for banner show - config-driven data */}
       <Banner />
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestaurant.map((res) => (
           <>
             {/* {console.log("restaurant card", res)}

@@ -1,7 +1,7 @@
 import { CDN_URL } from "../../utils/constant";
 
 const styleCard = {
-  backgroundColor: "lightgray",
+  backgroundColor: "#f0f0f0",
 };
 // console.log("CDN_URL", CDN_URL);
 const RestaurantCard = (props) => {
@@ -14,16 +14,19 @@ const RestaurantCard = (props) => {
   // obj destructuring
 
   return (
-    <div className="res-card" style={styleCard}>
+    <div
+      className="m-4 p-4 w-[250px] h-[450px] rounded-lg bg-gray-100 hover:bg-gray-200 h-50"
+      // style={styleCard}
+    >
       <img
-        className="res-logo"
+        className="rounded-lg w-52 h-48"
         src={CDN_URL + cloudinaryImageId}
         alt="restaurant-image"
       />
-      <h3>{name}</h3>
+      <h3 className="font-bold py-4 text-lg">{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
       <h4>{avgRating} Stars</h4>
-      <h4>₹{costForTwo} FOR TWO</h4>
+      <h4>{costForTwo} FOR TWO</h4>
       <h4>{sla.slaString}</h4>
     </div>
   );
