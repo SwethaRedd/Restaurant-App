@@ -2,9 +2,10 @@ import React from "react";
 import Shimmer from "../Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
-  console.log("useParams()===>", useParams());
+  // console.log("useParams()===>", useParams());
   const { resId } = useParams();
   /* you can use the useParams() hook to access the route parameters defined in the route path. For example: const { userId } = useParams();
   The useParams() hook returns an object containing the parameters parsed from the current route. 
@@ -17,7 +18,7 @@ const RestaurantMenu = () => {
 
   //   console.log("resInfo", resInfo.cards[2].card.card.info);
 
-  const { name, cuisines, cloudinaryImageId, costForTwoMessage } =
+  const { name, cuisines, costForTwoMessage } =
     resInfo?.cards[2]?.card?.card?.info;
 
   const { itemCards } =
@@ -39,24 +40,27 @@ const RestaurantMenu = () => {
         .card.card.itemCards[0].card.info
     );
     */
+  const categories =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.["card"]?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  //console.log(categories);
+
   return (
-    <div className="menu">
-      <h1> {name}</h1>
-      <img src={cloudinaryImageId} alt="image" />
-      <p>
+    <div className="text-center">
+      <h1 className="font-bold my-6 text-2xl"> {name}</h1>
+      {/* <img src={cloudinaryImageId} alt="image" /> */}
+      <p className="font-bold text-lg">
         {cuisines.join(" ,")} - {costForTwoMessage}
       </p>
-      <h2>Menu</h2>
-      <ul>
-        {itemCards.map((item) => (
-          // console.log(item.card.info.name)
-          <li key={item.card.info.id}>
-            {item.card.info.name} - Price Rs.
-            {item.card.info.price / 100 ||
-              item.card.info.deafultPrice / 100}{" "}
-          </li>
-        ))}
-      </ul>
+      {/*  categories accordions
+       */}
+      {categories.map((category) => (
+        // console.log("category", category)
+        <RestaurantCategory data={category?.card?.card} />
+      ))}
     </div>
   );
 };
