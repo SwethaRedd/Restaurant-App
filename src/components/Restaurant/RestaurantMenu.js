@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Shimmer from "../Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../../utils/useRestaurantMenu";
@@ -13,6 +13,7 @@ const RestaurantMenu = () => {
   In the example above, we destructure userId from the returned object to access the userId parameter from the route path (/users/:userId). 
   */
   const resInfo = useRestaurantMenu(resId);
+  const [showIndex, setShowIndex] = useState(0);
 
   if (resInfo === null) return <Shimmer />;
 
@@ -57,11 +58,13 @@ const RestaurantMenu = () => {
       </p>
       {/*  categories accordions
        */}
-      {categories.map((category) => (
-        // console.log("category", category)
+      {categories.map((category, index) => (
+        // controlled Component - the parent is controlling this Restaurant Category component.
         <RestaurantCategory
           key={category?.card?.card.title}
           data={category?.card?.card}
+          showItems={index === showIndex && true}
+          setShowIndex={() => setShowIndex(index)}
         />
       ))}
     </div>
