@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import logo from "../../../assets/logo.jpg";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+import UserContext from "../../utils/UserContext";
 
 const Header = () => {
   const btnName = "Login";
   const [buttonName, setButtonUpdate] = useState(btnName);
   const onlineStatus = useOnlineStatus();
   // console.log("Header rendered");
+  const data = useContext(UserContext);
+  const { loggedInUser } = data;
+  // console.log("data", data);
   /*
   we import useEffect from named import from react library.
   useEffect(() => {},[] );
@@ -48,7 +52,7 @@ const Header = () => {
           <li className="px-4">
             <Link to="/grocery">Grocery</Link>{" "}
           </li>
-          <li className="px-4">Cart</li>
+          <li className="px-4">{loggedInUser}</li>
           <button className="login" onClick={handleClick}>
             {buttonName}
           </button>
