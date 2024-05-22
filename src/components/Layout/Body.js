@@ -81,7 +81,7 @@ const Body = () => {
   else the res of the code
 */
 
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
@@ -115,7 +115,7 @@ const Body = () => {
       {/* add logic for banner show - config-driven data */}
       <Banner />
       <div className="flex flex-wrap">
-        {filteredRestaurant.map((res) => (
+        {filteredRestaurant?.map((res) => (
           <>
             {/* {console.log("restaurant card", res)}
             // {"/restaurant/" + res.info.id} */}
