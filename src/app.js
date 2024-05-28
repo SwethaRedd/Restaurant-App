@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Footer from "./components/Layout/Footer";
 import Body from "./components/Layout/Body";
@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Pages/Contact";
 import Error from "./components/Pages/Error";
 import RestaurantMenu from "./components/Restaurant/RestaurantMenu";
+import UserContext from "./utils/UserContext";
 /*
 lazy is a function by react.
 lazy takes a callback function, and i can write a import,
@@ -23,12 +24,23 @@ Dynamic import
 const Grocery = lazy(() => import("./components/Grocery/Grocery"));
 const About = lazy(() => import("./components/Pages/About"));
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+  //authentication
+  useEffect(() => {
+    // Make an API call and send userName and Password
+    const data = {
+      name: "John McKenny",
+    };
+    setUserName(data.name);
+  }, []);
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </UserContext.Provider>
   );
 };
 
