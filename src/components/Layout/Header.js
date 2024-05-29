@@ -22,7 +22,10 @@ const Header = () => {
   if dependency array is [btnHandle] => useEffect is called everytume btnHandle is updated.
   */
 
-  //Subscribing to the Store using Selector
+  /*
+  Subscribing to the Store using Selector
+  Selector gives you the access to the whole store
+  */
   const cartItems = useSelector((store) => store.cart.items);
   // console.log(cartItems);
 
