@@ -11,6 +11,7 @@ import RestaurantMenu from "./components/Restaurant/RestaurantMenu";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/reduxStore/appStore";
+import Cart from "./components/Pages/Cart";
 /*
 lazy is a function by react.
 lazy takes a callback function, and i can write a import,
@@ -76,6 +77,10 @@ const appRouter = createBrowserRouter([
             <Grocery />{" "}
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       //Dynamic Routing:  /:resId is dynamic here
       // you can specify dynamic segments in the route path by prefixing them with a colon (:)
