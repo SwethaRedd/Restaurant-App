@@ -3,6 +3,7 @@ import logo from "../../../assets/logo.jpg";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import UserContext from "../../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const btnName = "Login";
@@ -20,6 +21,10 @@ const Header = () => {
   If dependency array is empty = [] => useEffect is called on initial render(just once)
   if dependency array is [btnHandle] => useEffect is called everytume btnHandle is updated.
   */
+
+  //Subscribing to the Store using Selector
+  const cartItems = useSelector((store) => store.cart.items);
+  // console.log(cartItems);
 
   const handleClick = () => {
     buttonName === "Login"
@@ -51,6 +56,9 @@ const Header = () => {
           </li>
           <li className="px-4">
             <Link to="/grocery">Grocery</Link>{" "}
+          </li>
+          <li className="px-4 font-bold text-xl">
+            Cart ({cartItems.length} Items)
           </li>
           <li className="px-4">{loggedInUser}</li>
           <button className="login" onClick={handleClick}>
