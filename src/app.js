@@ -9,13 +9,15 @@ import Contact from "./components/Pages/Contact";
 import Error from "./components/Pages/Error";
 import RestaurantMenu from "./components/Restaurant/RestaurantMenu";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/reduxStore/appStore";
 /*
 lazy is a function by react.
 lazy takes a callback function, and i can write a import,
 this import is a function, & this takes the path of the component.
 
 Chunking
-Code splitting
+Code splitting 
 Dynamic Bundling
 lazy Loading
 on Demand Loading
@@ -34,13 +36,15 @@ const AppLayout = () => {
     setUserName(data.name);
   }, []);
   return (
-    <UserContext.Provider value={{ loggedInUser: userName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
