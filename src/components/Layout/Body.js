@@ -35,7 +35,7 @@ const Body = () => {
     );
 
     const json = await data.json();
-    console.log("json", json);
+    // console.log("json", json);
     setListOfRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -82,7 +82,7 @@ const Body = () => {
   else the res of the code
 */
   const { loggedInUser, setUserName } = useContext(UserContext);
-  console.log("loggedInUser", loggedInUser, setUserName);
+  // console.log("loggedInUser", loggedInUser, setUserName);
   const handleInput = (e) => {
     setUserName(e.target.value);
   };
