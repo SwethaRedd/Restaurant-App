@@ -2,11 +2,12 @@ import RestaurantCard, {
   withPromotedLabel,
 } from "../Restaurant/RestaurantCard";
 import resList from "../../utils/mockData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "../Shimmer";
 import Banner from "../Pages/Banner";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+import UserContext from "../../utils/UserContext";
 // https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_600/77b13d58799f70f670be31e6fe53374e
 
 const Body = () => {
@@ -34,12 +35,12 @@ const Body = () => {
     );
 
     const json = await data.json();
-    // console.log("json", json);
+    console.log("json", json);
     setListOfRestaurants(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
 
     // Optional Chaining
@@ -80,7 +81,11 @@ const Body = () => {
   if listOfRestaurants.length === 0 load Shimmer Component
   else the res of the code
 */
-
+  const { loggedInUser, setUserName } = useContext(UserContext);
+  console.log("loggedInUser", loggedInUser, setUserName);
+  const handleInput = (e) => {
+    setUserName(e.target.value);
+  };
   return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
@@ -110,6 +115,14 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+          <div className="search m-4 p-4 flex items-center ">
+            <label>User Name:</label>
+            <input
+              className="border border-black p-2"
+              onChange={handleInput}
+              value={loggedInUser}
+            />
+          </div>
         </div>
       </div>
       {/* add logic for banner show - config-driven data */}
