@@ -24,6 +24,9 @@ const Cart = () => {
         >
           Clear Cart
         </button>
+        {cartItems.length === 0 && (
+          <h1> Your Cart is Empty! Please add items to the Cart</h1>
+        )}
         <ItemList items={cartItems} />
       </div>
     </div>
