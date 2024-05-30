@@ -7,6 +7,7 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
+      // Redux Toolkit uses immer BTS
       // mutating the state here : Directly modifying the state
       state.items.push(action.payload);
     },
@@ -14,7 +15,8 @@ const cartSlice = createSlice({
       state.items.pop();
     },
     clearCart: (state, action) => {
-      state.items.length === 0;
+      // state.items.length === 0; // originalState = []
+      return { items: [] }; // this new object will be replaced inside originalState = { items: [] }
     },
   },
 });

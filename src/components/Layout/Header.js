@@ -36,7 +36,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    console.log("useEffect is called");
+    // console.log("useEffect is called");
   }, [handleClick]);
 
   return (
