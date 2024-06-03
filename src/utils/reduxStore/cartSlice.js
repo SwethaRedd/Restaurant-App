@@ -8,8 +8,18 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, action) => {
       // Redux Toolkit uses immer BTS
-      // mutating the state here : Directly modifying the state
+      //new react tool kit:  mutating the state here : Directly modifying the state
       state.items.push(action.payload);
+      /*
+        Vanila(older) redux version => 
+            1. DON'T MUTATE STATE,
+            2. returning was mandatory
+
+        const newState= [...state];   you copy the state
+        newState.items.push(action.payload);   you modify the new copied State.
+        return newState ;   you return the newState
+
+      */
     },
     removeItem: (state, action) => {
       state.items.pop();
