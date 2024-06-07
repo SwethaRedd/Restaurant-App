@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import logo from "../../../assets/logo.jpg";
+// import logo from "../../../assets/logo.jpg";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import UserContext from "../../utils/UserContext";
@@ -41,9 +41,9 @@ const Header = () => {
 
   return (
     <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-100">
-      <div className="logo-container">
+      {/* <div className="logo-container">
         <img className="w-56" src={logo} alt="logo" />
-      </div>
+      </div> */}
       <div className="flex items-center">
         <ul className="flex p-4 m-4">
           <li className="px-4">Online Status: {onlineStatus ? "🟢" : "🔴"} </li>
