@@ -1,26 +1,32 @@
 # Chapter 06 - Exploring the world
 
-●\*\*\*\* What is a Microservice?
+# ●\*\*\*\* What is a Microservice?
 
-●\*\*\*\* What is Monolith architecture?
+# ●\*\*\*\* What is Monolith architecture?
+
 ● What is the difference between Monolith and Microservice?
 ● Why do we need a useEffect Hook?
 ● What is Optional Chaining?
 
 ???
 
-● What is Shimmer UI?
-is a library, that uses a gradient animation to create a shimmer effect, mimicking content while it's loading. It is a dynnamic & customizable placeholder content solution designed for react and native.
-● What is the difference between JS expression and JS statement
+# What is Shimmer UI?
 
-● What is Conditional Rendering, explain with a code example
-Rendering on the conditional basis is, conditional rendering.
+is a library, that uses a gradient animation to create a shimmer effect, mimicking content while it's loading. It is a dynnamic & customizable placeholder content solution designed for react and native.
+
+# What is the difference between JS expression and JS statement
+
+# What is Conditional Rendering, explain with a code example
+
+Rendering something on the conditional basis is, conditional rendering.
 Ex:  
  if (listOfRestaurants.length === 0) {
 return <Shimmer />;
 }
-● Why do we even need state variables?
-if we use normal JS varibale and used the handler function to update the variable, it will update the variable but the UI won't be updated. Coz the ui is not rendered.we some how need to refresh the page to update the latest value. So basically JS variables won;t work in such cases.
+
+# Why do we even need state variables?
+
+if we use normal JS varibale and used a handler function to update the variable, it will update the variable but the UI won't be updated. Coz the ui is not rendered.we some how need to refresh the page to update the latest value. So basically JS variables won't work in such cases.
 
 If we want to make our component dynamic,
 something should be there to update the local state, this is where the useState comes into the picture.
@@ -31,19 +37,20 @@ useState comes as a named import from react.
 
 this behaves like a normal JS variable.
 
-as soon as you call the setInitState(), it will update the initState value with the new value and render that component and finds the diff between the older version and the newer version, & updates on the UI.
+as soon as you call the setInitState(), it will update the initState value with the new value and render that component & finds the diff between the older version and the newer version, & updates on the UI.
 
-● What is CORS?
+# What is CORS?
 
-● What is async and await?
-● What is the use of `const json = await data.json();` in getRestaurants()
+# What is async and await?
+
+# What is the use of `const json = await data.json();` in getRestaurants()
 
 # 6: Coding Assignment :
 
 // State Variable - Super Powerful Variable
 // Hook is normal JS function, given by react , function has logic behind the scenes.
 
-// const [state, setstate] = useState(initialState);
+// const [state, setState] = useState(initialState);
 const [listOfRestaurants, setListOfRestaurants] = useState(resList);
 
 /\*
@@ -70,34 +77,41 @@ const setListOfRestaurants = arr[1];
 # Chapter 05 - Let's get Hooked!
 
 **Assignment**
-● What is the difference between Named Export, Default export and \* as export?
+
+# ● What is the difference between Named Export, Default export and \* as export?
+
 Named exports can be multiple in single file, default exports are one for a file.
 Named exports can be imported as
-imort {img} from './constants';
+import {img} from './constants';
 Default exports can be imported as component
 import component from './compoents';
-● What is the importance of config.js file
 
-● What are React Hooks?
+# ● What is the importance of config.js file
+
+# ● What are React Hooks?
+
 Recat hooks are normal JS functions, we have 2 most used hooks in the react.
 useState() : is used to generate state variables in React.
 
 - we import the useState() from the React
   and this useState is like a normal JS object, it
-  const [state, setstate] = useState(initialState);
+  const [state, setState] = useState(initialState);
 
 state is the current value,
-setstate function is used to update the DOM
+setState function is used to update the DOM
 initialState will be the initial state value.
 
-useEffect()
+# Reconcilation algorithm:
 
-Reconcilation algorithm: After react Version V16, this reconcilation algorithm is know as React Fiber, it has incremental rendering
-Diff Algorithm
+After react Version V16, this reconcilation algorithm is know as **React Fiber**, it has incremental rendering
+
+# Diff Algorithm:
+
+Finds out the difference between the old version VDOM and the newer version of the VDOM.
 
 Whenever state variable gets updated, react triggers a reconcilation cycle(i.e,.re-renders the component).
 
----
+## useEffect()
 
 - ***
 
@@ -136,7 +150,7 @@ _●_ What is SPA?
 Single Page Application - Single page application will have single HTML page , which loads once and the part of the application will be rendered when something is changed or updated.
 
 *●*What is difference between Client Side Routing and Server Side Routing?
-Client side routing doesn't make any network calls to load the page, isntead it loads the whole page on the initial load and then it just shows the loaded content based on the route.
+Client side routing doesn't make any network calls to load the page, instead it loads the whole page on the initial load and then it just shows the loaded content based on the route.
 And Server side routing will make an call to the server and then loads the data on page.
 
 #### Coding Assignment:
@@ -159,8 +173,8 @@ And Server side routing will make an call to the server and then loads the data 
 
   **. react-router-dom**
   Whenever you have to develop routes, we need to create Routing configuration.
-  You import this this {createBrowserRouter} named config from the "react-router-dom".
-  and react-router-dom has this RouterProvider which will provide the routing config to our App.So we need to import that from teh react-router-dom
+  You import this {createBrowserRouter} named config from the "react-router-dom".
+  and react-router-dom has this RouterProvider which will provide the routing config to our App.So we need to import that from the react-router-dom
 
   Ex:
   import {createBrowserRouter, RouterProvider} from "react-router-dom"
@@ -491,7 +505,7 @@ When I click on some link realted to the component, then only it should load tha
 
 basically we use this lazy() function to load this component instead of directly importing it like regular imports.
 
-const Grocery = lazy(() => import("./components/Grocery/Grocery"));
+# const Grocery = lazy(() => import("./components/Grocery/Grocery"));
 
 this lazy() function takes a callback function and that will have import(), which takes the component path.
 
@@ -537,6 +551,15 @@ plugins)?
 Coding:
 ● Configure Tailwind and try to build your whole app using tailwind.
 
+# Tailwind CSS
+
+https://tailwindcss.com/docs/guides/parcel
+
+1. Install Tailwind with parcel, as we are using parcel bundle.
+
+npm install -D tailwindcss postcss ()
+npx tailwindcss init (created a config for tailwind) 2. Configure PostCSS 3. Configure your template paths
+
 # References:
 
 ● https://styled-components.com/
@@ -548,16 +571,200 @@ Coding:
 
 Higher order component is a function, takes a component and returns a component.
 
+# Controlled & Uncontrolled Components
+
+DOM is managed by the component is know as uncontrolled component, and DOM is managed by a component is a controlled component
+
 # Chapter 11 - Data is the new Oil
 
 Theory:
-● What is prop drilling?
-● What is lifting the state up?
-● What is Context Provider and Context Consumer?
-● If you don’t pass a value to the provider does it take the default value?
-Coding:
-● Practice React Context with code examples
+
+# ● What is prop drilling?
+
+passing the data from a component to nested components. (Parent to the grand-child, great-grand child.)
+
+# ● What is lifting the state up?
+
+sometimes, you have to lift the state up to control the children. (passing the data from children to the parent to control the children)
+
+# How you pass data from a child to a parent?
+
+you pass a call back function as a prop to the child and that child will use this prop and returns the the data as response to it's parent.
+
+# React Context:
+
+Some Data (lets say ex: logged in user) is needed in many components and or in many places in the application. The logged in user info is needed in many places. So what we do is, we hold or keep that data in a central place, as in a context and we can access that data anywhere in our app without prop drilling(or passing data to the nested compoents from parent to child, & child to grand and grand child to great grand child).
+
+####
+
+1. This is how we create a Global context. By using createContext from react.
+
+import { createContext } from "react";
+
+const UserContext = createContext({
+loggedInUser: "Default user",
+});
+export default UserContext;
+
+2. to use this globally created context throught the app using useContext hook.
+
+import { createContext, useContext } from "react";
+const data = useContext(UserContext); // UserContext is a globally created context in the app here.This has to be imported from the utility file.
+
+console.log("data", data);
+
+# How to access the useContext hook in classbased components?
+
+Baiscally we have 2 ways to consume the context.
+
+1. using hooks - useContext with functional components
+2. <UserContext.Consumer> inside this we will have jsx code and in that, we use callback function, which gets the access to the context data - in classbased components.
+   we can use <UserContext.Consumer> </UserContext.consumer> to access the information from contextAPI.
+
+# ● What is Context Provider and Context Consumer?
+
+# Context Provider:
+
+is used to add/update the info in the context data. And we can wrap our application inside this context Provider. So that, you can use the context data through out the application.
+
+# Context Consumer:
+
+is used to access the context data anywhere in the application
+
+# ● If you don’t pass a value to the provider does it take the default value?
+
+Yes, it does use the default value, if we don;t pass any value to the provider.
+
+# Coding:
+
+# ● Practice React Context with code examples
+
 ● Try out Nested Contexts
 References:
 ● Lifting State Up
 ● React Context
+
+# Redux Tool Kit:
+
+- install @@reduxjs/toolkit and react-redux
+- Build our own store
+- Connect our store to our app
+- Create a Slice (cartSlice)
+- will dispatch(action)
+- Read the data using - Selector
+
+# Chapter 12 - Let's Build our Store
+
+Theory:
+
+# ● useContext vs Redux.
+
+# ● Advantage of using Redux Toolkit over Redux.
+
+You can not directly modify our slice in redux store.
+**How to write the data into the redux store slice.**
+
+If i click on a button, it dispatches an action. And this action will call a function (this function here is a reducer), and this reducer function will actually modifies the slice of the redux store,
+for an example, lets say i want to add an item to the cart, so when i click on an add button, it dispatches an action, and this action will call a function (reducer), and this reducer internally modifies the cartSlice.
+**How to read the data from the redux store slice.**
+we use selector to read the data from the redux store. And this selector modifies the react component.
+This phenomenon is know as subscribing to the store.
+
+# ● Explain Dispatcher.
+
+# ● Explain Reducer.
+
+# ● Explain slice.
+
+# ● Explain selector.
+
+# ● Explain createSlice and the configuration it takes.
+
+# Coding:
+
+● Practice making a store, slices and do read and write operations using Redux
+Store
+● Build Cart Flow using Redux Store
+
+#
+
+# Chapter 13 - Time for the test
+
+Theory:
+
+# ● What are different types for testing?
+
+1. Manual Testing
+2. Write a code (test cases) to test the application.
+
+# ● What are different types for testing a DEVELOPER can do in a React Application?
+
+3 types of developer Testing:
+
+# 1. Unit Testing:
+
+you test your react application in an isolation. Let's say, if i want to test a header component, What I'll do is, i'll test this header component in an isolation of the app.
+I'll try to render my header component and see whether it is got rendered properly or not.
+one unit of your code or react application or you are testing a specific or small unit of your react application.
+
+# 2. Integration Testing:
+
+Testing the integration of the application. Lets say, we have a big application and there are so many components, & they talk to each other,& we develop a flow of an action in a react application, we test that.
+
+# 3. End to End Testing (e2e Testing): -
+
+Testing a React application, as soon as the user lands on the website, to the user leaves the website, Which means we will test all the different flows.
+lets say, the user entering into the website, clicking on login, checking out the products, adding items to the cart, updating the cart, removing the items, going to the checkout page.
+the e2e testing requires different tools like,
+cypress,puppeteer, selenium liek tools to do the end to end testing.
+
+# ● What is Enzyme?
+
+# ● Enzyme vs React Testing Library
+
+# ● What is Jest and why do we use it?
+
+_Coding:_
+
+# Setup React Testing Library
+
+React Testing Library is built on top of DOM Testing library.
+React Testing Library uses Jest (Jest is a delightful JavaScript Testing Framework) behind the scenes.
+
+1. install react testing library : npm i -D @testing-library/react
+2. install jest into the app : npm i -D jest
+3. install babel dependencies - npm install --save-dev babel-jest @babel/core @babel/preset-env
+4. Configure babel: create file with babel.config.js
+5. Configure Parcel Config file to disable default babel transpilation (so that we can use the configured babel configuration)
+6. Jest Configuration: npx jest --init
+7. install - jsdom library: npm install -D jest-environment-jsdom
+   OR
+   npm install --save-dev jest-environment-jsdom
+8. install @babel/preset-react to make JSX work in test cases.
+9. Include @babel/preset-react inside my babel configuration
+10. Install - npm i -D @testing-library/jest-dom
+
+# where do we write test cases?
+
+**/**tests**/**/_.[jt]s?(x), \*\*/?(_.)+(spec|test).[tj]s?(x)
+**tests** = dunder ((under score , underscore))
+
+- Header.test.js
+- Header.test.ts
+- Header.spec.js
+- Header.spec.ts
+
+==================
+● Write Unit Tests for Header Component to test for Logo, Cart - 0 items and
+Online Status
+
+# Unit Testing:
+
+Testing one unit/component in an isolation.
+
+# Integration Testing:
+
+Testing multiple components
+
+● Write Integration Test case for search feature on the Homepage
+● Write Integration Test case for Add to Cart flow
